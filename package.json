@@ -1,7 +1,7 @@
 {
   "name": "vue-kr-print-designer",
-  "version": "1.0.2",
-  "description": "自修改版本2",
+  "version": "1.0.4",
+  "description": "自修改版本4",
   "publish": true,
   "main": "lib/kr-print-designer.umd.min.js",
   "files": [

@@ -1,12 +1,22 @@
 const generate = require('nanoid/generate')
-import { getDefaultProps, styleMap } from '../libs/props.js'
+import {
+  getDefaultProps,
+  styleMap
+} from '../libs/props.js'
 export default {
   // 初始化页面属性
   initPage(state, pageInfo) {
     state.page = pageInfo
     // 补全默认样式
     let tempItems = pageInfo.tempItems ? pageInfo.tempItems.map(item => {
-      let optionItem = { ...state.widgetSetting[item.type], ...item, style: { ...state.widgetSetting[item.type].style, ...(item.style || {}) } }
+      let optionItem = {
+        ...state.widgetSetting[item.type],
+        ...item,
+        style: {
+          ...state.widgetSetting[item.type].style,
+          ...(item.style || {})
+        }
+      }
       return optionItem
     }) : []
 
@@ -16,7 +26,14 @@ export default {
   initOptionItems(state, options) {
     // 补全默认属性
     let optionsObject = options ? options.map(item => {
-      let optionItem = { ...state.widgetSetting[item.type], ...item, style: { ...state.widgetSetting[item.type].style, ...(item.style || {}) } }
+      let optionItem = {
+        ...state.widgetSetting[item.type],
+        ...item,
+        style: {
+          ...state.widgetSetting[item.type].style,
+          ...(item.style || {})
+        }
+      }
       return optionItem
     }) : []
 
@@ -135,7 +152,9 @@ export default {
 
   // 添加组件
   addTempItem(state, item) {
-    let def = { uuid: generate('1234567890abcdef', 10) }
+    let def = {
+      uuid: generate('1234567890abcdef', 10)
+    }
     let setting = JSON.parse(JSON.stringify(item))
 
     state.page.tempItems.push(Object.assign(setting, def))
@@ -144,7 +163,10 @@ export default {
 
 
   // 更新数据
-  updateData(state, { uuid, value }) {
+  updateData(state, {
+    uuid,
+    value
+  }) {
     let widget = state.page.tempItems.find(w => w.uuid === uuid)
     widget ? widget.value = value : ''
   },
@@ -160,6 +182,14 @@ export default {
   // 设置模板默认属性
   setWidgetSetting(state, settingObj) {
     state.widgetSetting = settingObj
-  }
+  },
+  //根据纸张宽度，动态计算模板宽度
+  setModelWidth(state, width) {
+    state.page.width = width
+  },
+  //根据纸张高度，动态计算模板高度
+  setModelHeight(state, height) {
+    state.page.height = height
+  },
 
 }

@@ -34,23 +34,23 @@ export default {
       console.error(err)
     }
     //根据页面宽高（mm）计算出模板宽高（px）
-    // this.value.width = this.value.pageWidth * this.getOneMmsPx()
-    // this.value.height = this.value.pageHeight * this.getOneMmsPx()
+    this.value.width = this.value.pageWidth * this.getOneMmsPx()
+    this.value.height = this.value.pageHeight * this.getOneMmsPx()
   },
   //页面宽高改变后，改变模板的宽高
   // watch: {
   //   'value.pageWidth': {
   //     handler(newVal, oldVal) {
-  //       console.log(newVal, '宽')
   //       this.value.width = newVal * this.getOneMmsPx()
-  //       console.log(newVal * this.getOneMmsPx())
+  //       this.initTemp()
   //     },
   //     deep: true,
   //   },
   //   'value.pageHeight': {
   //     handler(newVal, oldVal) {
-  //       console.log(newVal, '高')
   //       this.value.height = newVal * this.getOneMmsPx()
+  //       console.log('页面高度改变', newVal)
+  //       this.initTemp()
   //     },
   //     deep: true,
   //   },

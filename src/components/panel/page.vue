@@ -14,7 +14,6 @@
               controls-position="right"
               :min="1"
               class="min-input"
-              disabled
               :precision="0"
             ></el-input-number>
           </el-form-item>
@@ -26,7 +25,6 @@
               controls-position="right"
               :min="1"
               class="min-input"
-              disabled
               :precision="0"
             ></el-input-number>
           </el-form-item>
@@ -63,6 +61,33 @@ export default {
   computed: {
     pageInfo() {
       return this.$vptd.state.page
+    },
+  },
+  watch: {
+    'pageInfo.pageWidth': {
+      handler(newVal, oldVal) {
+        this.$vptd.commit('setModelWidth', newVal * this.getOneMmsPx())
+      },
+      deep: true,
+    },
+    'pageInfo.pageHeight': {
+      handler(newVal, oldVal) {
+        this.$vptd.commit('setModelHeight', newVal * this.getOneMmsPx())
+      },
+      deep: true,
+    },
+  },
+  methods: {
+    //获取px和mm的转换比例
+    getOneMmsPx() {
+      let div = document.createElement('div')
+      div.id = 'mm'
+      div.style.width = '1mm'
+      document.querySelector('body').appendChild(div)
+      // 原生方法获取浏览器对元素的计算值
+      let mm1 = document.getElementById('mm').getBoundingClientRect()
+      // console.log(mm1)
+      return mm1.width
     },
   },
 }
