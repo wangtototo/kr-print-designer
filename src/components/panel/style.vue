@@ -79,14 +79,14 @@
             ></el-color-picker>
           </el-form-item>
         </el-col>
-        <el-col :span="8">
+        <!-- <el-col :span="8">
           <el-form-item label="边框颜色">
             <el-color-picker
               :disabled="activeElement.style.BorderColor===undefined"
               v-model="activeElement.style.BorderColor"
             ></el-color-picker>
           </el-form-item>
-        </el-col>
+        </el-col>-->
         <el-col :span="8">
           <el-form-item label="条码值">
             <el-switch

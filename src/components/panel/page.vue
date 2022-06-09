@@ -12,8 +12,10 @@
             <el-input-number
               v-model="pageInfo.width"
               controls-position="right"
-              :min="0"
+              :min="1"
               class="min-input"
+              disabled
+              :precision="0"
             ></el-input-number>
           </el-form-item>
         </el-col>
@@ -22,8 +24,10 @@
             <el-input-number
               v-model="pageInfo.height"
               controls-position="right"
-              :min="0"
+              :min="1"
               class="min-input"
+              disabled
+              :precision="0"
             ></el-input-number>
           </el-form-item>
         </el-col>
@@ -33,7 +37,7 @@
           <el-input-number
             v-model="pageInfo.pageWidth"
             controls-position="right"
-            :min="0"
+            :min="1"
             class="min-input"
           ></el-input-number>
           <span class="unit-text">(mm)</span>
@@ -44,7 +48,7 @@
           <el-input-number
             v-model="pageInfo.pageHeight"
             controls-position="right"
-            :min="0"
+            :min="1"
             class="min-input"
           ></el-input-number>
           <span class="unit-text">(mm)</span>
