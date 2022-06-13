@@ -32,7 +32,7 @@ export default {
     },
   },
   created() {
-    this.initTemp(this.tempValue,this.widgetOptions)
+    this.initTemp(this.tempValue, this.widgetOptions)
   },
   methods: {
     // 保存模板
@@ -45,14 +45,14 @@ export default {
       let page = { ...this.$vptd.state.page }
       this.$lodop.previewTemp(cloneDeep(page))
     },
-    
+
     // 初始化设计器
-    initTemp(tempValue,widgetOptions){
+    initTemp(tempValue, widgetOptions) {
       this.$vptd.dispatch('designerInit', {
         tempValue: cloneDeep(tempValue),
         options: cloneDeep(widgetOptions),
       })
-    }
+    },
   },
 }
 </script>
@@ -71,7 +71,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   width: 100%;
-  height: 100%;
+  // height: 100%;
   text-align: left;
   display: flex;
   flex-direction: row;

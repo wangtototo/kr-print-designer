@@ -8,31 +8,43 @@
 </template>
 <script>
 import { OutStockOptions, InStockOptions } from '../data/options'
+import { mychooseOptions } from '../data/mychooseOptions'
 export default {
   data() {
     return {
       index: '',
       value: {
-        title: 'demo',
-        width: 750,
-        height: 550,
-        pageWidth: 76,
-        pageHeight: 130,
+        title: '拣选单',
+        width: 791,
+        height: 1118,
+        pageWidth: 210,
+        pageHeight: 297,
         tempItems: [],
       },
-      widgets: OutStockOptions,
+      widgets: mychooseOptions,
+      // value: {
+      //   title: 'demo',
+      //   width: 750,
+      //   height: 550,
+      //   pageWidth: 76,
+      //   pageHeight: 130,
+      //   tempItems: [],
+      // },
+      // widgets: OutStockOptions,
     }
   },
 
   created() {
     this.index = this.$route.query.index
-    try {
-      let tempList = JSON.parse(localStorage.getItem('tempList')) || []
-      this.value = tempList[this.index]
-      this.widgets = this.value.type == 1 ? OutStockOptions : InStockOptions
-    } catch (err) {
-      console.error(err)
-    }
+    let tempList = JSON.parse(localStorage.getItem('tempList')) || []
+    this.value = tempList[this.index]
+    // try {
+    //   let tempList = JSON.parse(localStorage.getItem('tempList')) || []
+    //   this.value = tempList[this.index]
+    //   this.widgets = this.value.type == 1 ? OutStockOptions : InStockOptions
+    // } catch (err) {
+    //   console.error(err)
+    // }
     //根据页面宽高（mm）计算出模板宽高（px）
     this.value.width = this.value.pageWidth * this.getOneMmsPx()
     this.value.height = this.value.pageHeight * this.getOneMmsPx()

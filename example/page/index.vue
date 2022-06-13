@@ -121,6 +121,15 @@
                 placeholder="数据模板对应的数据，数据格式为json对象"
               ></el-input>
             </el-form-item>
+            <el-form-item label="拣选单数据">
+              <el-input
+                type="textarea"
+                style="width:920px"
+                :rows="8"
+                v-model="testData.mychooseData"
+                placeholder="数据模板对应的数据，数据格式为json对象"
+              ></el-input>
+            </el-form-item>
           </el-form>
         </el-collapse-item>
       </el-collapse>
@@ -140,7 +149,7 @@ const defaultTemp = () => ({
   pageHeight: '',
   tempItems: [],
 })
-import { OutStockData, InStockData } from '../data/test'
+import { OutStockData, InStockData, mychooseData } from '../data/test'
 export default {
   data() {
     return {
@@ -167,6 +176,7 @@ export default {
       testData: {
         OutStock: JSON.stringify(OutStockData),
         InStock: JSON.stringify(InStockData),
+        mychooseData: JSON.stringify(mychooseData),
       },
     }
   },
